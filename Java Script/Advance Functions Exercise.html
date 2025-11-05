@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Functions Practise Exercise</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+      }
+
+      button {
+        height: 40px;
+        width: 120px;
+        margin-top: 20px;
+        border: 1px solid;
+        border-radius: 10px;
+        background-color: rgb(190, 35, 35);
+        color: white;
+        cursor: pointer;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Subscribe</button>
+    <script>
+      // Task 1 : Create a variable multiply and assign to a function which multiplies two numbers
+
+      let multiply = (num1, num2) => num1 * num2;
+      console.log(multiply(3, 5));
+
+      // Task 2 : Multiplication of 3 numbers using multiply variable
+
+      function runTwice(num1, num2, num3, multiplyTwoNumbers) {
+        let firstmultiply = multiplyTwoNumbers(num1, num2);
+        return multiplyTwoNumbers(firstmultiply, num3);
+      }
+      console.log(runTwice(3, 5, 7, multiply));
+
+      // Task 3 : Create a button which grows in size on clicking after 2 sec
+
+      const buttonSelector = document.querySelector("button");
+      function doubleSize() {
+        buttonSelector.style.transform = "scale(2)";
+      }
+
+      // Task 4 : Complete Task 3 using an event listener instead of onclick
+
+      buttonSelector.addEventListener("click", () =>
+        setTimeout(doubleSize, 2000)
+      );
+
+      // Task 5 : Create a function that sums numbers in an array using for loop
+
+      let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      let sum = 0;
+      // function sumOfArray(arrayName) {
+      //   for (let i = 0; i < arrayName.length; i++) {
+      //     sum += arrayName[i];
+      //   }
+      //   return sum;
+      // }
+      // console.log(sumOfArray(array));
+      array.forEach((num) => (sum += num));
+      console.log(sum);
+
+      // Task 6 : Create a function that takes an array and return their squares using map function
+
+      let squares = (arrayName) => arrayName.map((num) => num * num);
+      console.log(squares(array));
+    </script>
+  </body>
+</html>

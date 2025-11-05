@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do App</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        font-size: 14px;
+        font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+          "Helvetica Neue", sans-serif;
+      }
+
+      body {
+        text-align: center;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 3rem;
+        margin-top: 10px;
+      }
+
+      section {
+        height: 80px;
+        margin: 20px 10% 20px 10%;
+        padding-bottom: 10px;
+
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      input {
+        height: 60px;
+        width: 200px;
+        border-radius: 10px;
+        text-align: center;
+        color: black;
+        font-size: 1.5rem;
+      }
+
+      #todo_container div {
+        height: 60px;
+        margin: 20px 10% 20px 10%;
+
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      #todolist_date {
+        height: 60px;
+        width: 200px;
+        border-radius: 10px;
+        color: black;
+        font-size: 1.5rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #todolist_items {
+        height: 60px;
+        width: 200px;
+        border-radius: 10px;
+        color: black;
+        font-size: 1.5rem;
+
+        display: flex;
+        align-items: center;
+      }
+
+      button {
+        height: 60px;
+        width: 150px;
+        font-size: 2rem;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .add_button {
+        background-color: rgb(127, 221, 127);
+        cursor: pointer;
+      }
+
+      .delete_button {
+        background-color: rgb(236, 75, 75);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>To Do List App</h1>
+    <section>
+      <input id="todo_input" type="text" placeholder="Enter To Do here" />
+      <input id="todo_date" type="date" placeholder="dd/mm/yy" />
+      <button class="add_button" onclick="addToDo(); displayItems();">
+        Add
+      </button>
+    </section>
+    <div id="todo_container"></div>
+
+    <script>
+      const inputElement = document.querySelector("#todo_input");
+      const dateElement = document.querySelector("#todo_date");
+      const addButton = document.querySelector(".add_button");
+
+      addButton.disabled = true;
+
+      function toggleButtonState() {
+        addButton.disabled = !(inputElement.value.trim() && dateElement.value);
+      }
+
+      inputElement.addEventListener("input", toggleButtonState);
+      dateElement.addEventListener("input", toggleButtonState);
+
+      let todoList = JSON.parse(localStorage.getItem("To Do List")) || [];
+      displayItems();
+
+      function addToDo() {
+        let todoItem = inputElement.value;
+        let todoDate = new Date(dateElement.value).toLocaleDateString("en-GB");
+        todoList.push({ item: todoItem, dueDate: todoDate });
+        inputElement.value = "";
+        dateElement.value = "";
+        toggleButtonState();
+        localStorage.setItem('To Do List', JSON.stringify(todoList));
+      }
+
+      function displayItems() {
+        let containerElement = document.querySelector("#todo_container");
+        let newHtml = "";
+
+        for (let i = 0; i < todoList.length; i++) {
+          newHtml += `<div>
+                      <span id="todolist_items">${todoList[i].item}</span>
+                      <span id="todolist_date">${todoList[i].dueDate}</span>
+                      <button onclick="todoList.splice(${i}, 1); displayItems(); localStorage.setItem('To Do List', JSON.stringify(todoList));" class="delete_button">Delete</button>
+                      </div>`;
+        }
+        containerElement.innerHTML = newHtml;
+      }
+    </script>
+  </body>
+</html>

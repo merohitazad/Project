@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array & Loop Practise Exercise</title>
+  </head>
+  <body>
+    <script>
+      // 1st Task : Add an element at first or at last position
+      let myArray = [5, 6];
+      myArray.push(7);
+      myArray.splice(0, 0, 4);
+      console.log(myArray);
+
+      // 2nd Task : Return element by position
+
+      let array = [23, 56, 54, 24, 86, 25];
+
+      function returnElement(arr, position) {
+        return arr[position - 1];
+      }
+      console.log(returnElement(array, 3));
+
+      // 3rd Task : Make a copy of an Array
+
+      let secondArray = [];
+      function copyArray(arr, arrCopy) {
+        arrCopy.push(arr.slice(0, arr.length));
+      }
+      copyArray(array, secondArray);
+      console.log(secondArray);
+
+      // 4th Task : Print first 5 prime numbers
+
+      function isPrime(num) {
+        let i = 2;
+        while (i < num) {
+          if (num % i == 0) {
+            return false;
+          }
+          i++;
+        }
+        return true;
+      }
+
+      let x = 2;
+      let primeNumberArray = [];
+
+      while (primeNumberArray.length < 5) {
+        if (isPrime(x) === true) {
+          primeNumberArray.push(x);
+        }
+        x++;
+      }
+
+      console.log(primeNumberArray);
+
+      // 6th Task : Print reverse numbers from 10 to 1
+
+      let reverseArray = [];
+      for (let i = 10; i >= 1; i--) {
+        reverseArray.push(i);
+      }
+      console.log(reverseArray);
+
+      // 7th Task : Return only +ve numbers
+
+      let givenArray = [1, -6, 5, 7, -98, -8, 45, -45, 67];
+      let positiveNumbersArray = [];
+      let k = 0;
+
+      for (givenArray[k]; k < givenArray.length; k++) {
+        if (givenArray[k] > 0) {
+          positiveNumbersArray.push(givenArray[k]);
+        }
+      }
+      console.log(positiveNumbersArray);
+
+      // 8th Task : Concatenate strings in an array
+
+      let concatenateArray = [
+        "KG",
+        "Coding",
+        "Javascript",
+        "Course",
+        "is",
+        "best",
+      ];
+      let finalString = concatenateArray[0];
+      let j = 1;
+      for (concatenateArray[j]; j < concatenateArray.length; j++) {
+        finalString = `${finalString} ${concatenateArray[j]}`;
+      }
+      console.log(finalString);
+      console.log(concatenateArray.join(" "));
+    </script>
+  </body>
+</html>

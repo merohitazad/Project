@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object</title>
+</head>
+<body>
+  
+  <script>
+    
+    let product = {
+      company: 'Bewakoof',
+      name: 'Geometric Printed Oversized Cotton Shirt',
+      rating: {
+        stars:3.9,
+        numberOfRatings:21
+      },
+      price: 799
+    };
+
+    let product1 = {
+      company: 'Bewakoof',
+      name: 'Geometric Printed Oversized Cotton Shirt',
+      rating: {
+        stars:3.9,
+        numberOfRatings:21
+      },
+      price: 799,
+      'delivery-time': 'Same Day'
+    };
+    
+    let product2 = {
+      company: 'Bewakoof',
+      name: 'Geometric Printed Oversized Cotton Shirt',
+      rating: {
+        stars:3.9,
+        numberOfRatings:21
+      },
+      price: 799,
+      'delivery-time': 'Same Day'
+    }; 
+
+    // Changing one object parameter to see if the other object parameter is changed or not
+
+    let productCopy = product1 ;
+    product1.company = 'Noname';
+    console.log(`${product1.company} ${productCopy.company}`);
+    console.log(product1['delivery-time']);
+    
+    // Destructuring variable out of an object
+
+    let delivery = {
+      message: 'Good Job',
+      status: 'Complete',
+    };
+
+    let {message , status} = delivery;
+    console.log(message);
+    console.log(status);
+
+    // function to check to identical product
+
+    function isIdenticalProduct(productx , producty) {
+      if (typeof productx !== 'object' || typeof producty !== 'object') {
+        console.warn ('Parameter passed is not an object');
+        return false;
+      }
+
+      if (productx == producty) {
+        return true;
+      }
+
+      if (productx.company === producty.company &&
+          productx.name === producty.name &&
+          productx.rating.stars === producty.rating.stars &&
+          productx.rating.numberOfRatings === producty.rating.numberOfRatings &&
+          productx.price === producty.price
+       ) {
+        return true;
+       } else {
+        return false;
+       }
+    }
+
+    console.log(isIdenticalProduct(product,product1));
+    console.log(isIdenticalProduct(product,product2));
+    console.log(isIdenticalProduct(product,''));
+    console.log(isIdenticalProduct(product,product));
+  </script>
+</body>
+</html>

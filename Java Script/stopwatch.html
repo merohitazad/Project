@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch App</title>
+    <style>
+      main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+
+      h1 {
+        font-size: 50px;
+        text-transform: uppercase;
+      }
+
+      input {
+        font-size: 35px;
+        height: 50px;
+        width: 250px;
+        border: 1px solid;
+        border-radius: 10px;
+        text-align: center;
+        margin: 20px;
+      }
+
+      button {
+        height: 50px;
+        width: 120px;
+        border: 1px solid;
+        border-radius: 10px;
+        font-size: 35px;
+      }
+
+      #start-button {
+        background-color: lightgreen;
+      }
+
+      .clear-button:hover {
+        background-color: rgb(209, 64, 64);
+      }
+
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1><pre>Stopwatch App</pre></h1>
+      <input type="" readonly />
+      <div>
+      <button id="start-button">Start</button>
+      <button onclick="clearTimer();" class="clear-button">Clear</button>
+      </div>
+    </main>
+    <script>
+      let start;
+      let intervalID;
+      let clicks = 0;
+      let inputValue;
+      let elapsed = 0;
+      const startButtonElement = document.querySelector("#start-button");
+
+      startButtonElement.addEventListener("click", () => {
+        clicks++;
+        if (clicks % 2 == 1) {
+          document.querySelector("#start-button").innerText = "Stop";
+          document.querySelector("#start-button").style.backgroundColor = "tomato";
+          startTimer();
+        } else {
+          document.querySelector("#start-button").innerText = "Start";
+          document.querySelector("#start-button").style.backgroundColor = "lightgreen";
+          stopTimer();
+        }
+      });
+
+      function startTimer() {
+        start = performance.now() - elapsed;
+        intervalID = setInterval(() => {
+          elapsed = performance.now() - start;
+          document.querySelector("input").value = (elapsed / 1000).toFixed(2);
+        }, 10);
+      }
+
+      function stopTimer() {
+        clearInterval(intervalID);
+      }
+
+      function clearTimer() {
+        clearInterval(intervalID);
+        document.querySelector("input").value = "";
+        startButtonElement.innerText = "Start";
+        start = 0;
+        clicks = 0;
+        elapsed = 0;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advance Functions</title>
+  </head>
+  <body>
+    <script>
+      // let alarm = function() {
+      // console.log("Subah ho gyi uth ja");
+      // };
+
+      let alarm = () => console.log("Subah ho gyi uth ja");
+      setTimeout(() => console.log("Subah ho gyi uth ja"), 2000);
+      console.log("Morning Time");
+
+      let intervalId = setInterval(alarm, 2000);
+      // clearInterval(intervalId);
+      setTimeout(() => clearInterval(intervalId), 10000);
+
+      // For Each Loop
+      let arr = [3, 5, 7, 9];
+      for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+      }
+
+      arr.forEach((num) => console.log(num));
+
+      // Filter & Map Methods in array
+
+      let array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+      // let odds = arr.filter((num, index) => {
+      //   if (num % 2 === 1) {
+      //     return true;
+      //   } else {
+      //     return false;
+      //   }
+      // });
+
+      let odds = array.filter((num, index) => num % 2 === 1);
+      let squares = array.map((num) => num * num);
+      console.log(odds);
+      console.log(squares);
+    </script>
+  </body>
+</html>

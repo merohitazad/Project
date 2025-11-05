@@ -1,0 +1,54 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+header {
+  height: 12vh;
+  width: 100vw;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 30vw;
+  margin-left: 5vw;
+
+  display: flex;
+  align-items: center;
+}
+
+.logo a img {
+  height: 100%;
+}
+
+.nav_bar {
+  width: 50vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav_menu {
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgb(26, 25, 25);
+}
+
+.nav_menu:hover {
+  color: #0000EE;
+}

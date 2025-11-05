@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practise Exercise</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      .click_button {
+        height: 100px;
+        width: 100px;
+        border: 1px solid;
+        border-radius: 10px;
+        font-size: 50px;
+        cursor: pointer;
+      }
+
+      .refresh_button {
+        height: 100px;
+        width: 200px;
+        border: 1px solid;
+        border-radius: 10px;
+        font-size: 50px;
+        cursor: pointer;
+        margin-left: 20px;
+      }
+
+      .refresh_button:hover {
+        background-color: blueviolet;
+      }
+
+      .button {
+        padding: 0px 35%;
+
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1></h1>
+    <div class="button">
+      <button class="click_button"></button>
+      <button class="refresh_button" onclick="localStorage.clear();">
+        Refresh
+      </button>
+    </div>
+    <script>
+      // Greetings //
+      let timeInHour = new Date().getHours();
+      function greetings(time, name = "Dear") {
+        if (time > 3 && time < 12) {
+          return `Good Morning ${name}`;
+        } else if (time > 11 && time < 15) {
+          return `Good Afternoon ${name}`;
+        } else if (time > 15 && time < 20) {
+          return `Good Evening ${name}`;
+        } else return `Good Night ${name}`;
+      }
+      document.querySelector("h1").innerText = greetings(
+        timeInHour,
+        "Rohit Kumar"
+      );
+
+      // Button showing how many times it has been clicked //
+
+      let totalClicks = JSON.parse(localStorage.getItem("Total Clicks")) || {
+        numberOfClicks: 0,
+      };
+
+      function evenOrOdd(x) {
+        return x % 2 === 0 ? "even" : "odd";
+      }
+
+      function buttonBackgroundColor(number) {
+        if (evenOrOdd(number) === "even") {
+          document.querySelector(".click_button").style.backgroundColor =
+            "rgb(55, 211, 55)";
+        } else {
+          document.querySelector(".click_button").style.backgroundColor =
+            "rgb(255, 35, 60)";
+        }
+      }
+
+      let initialCount = totalClicks.numberOfClicks;
+      buttonBackgroundColor(initialCount);
+
+      document.querySelector(".click_button").addEventListener("click", () => {
+        totalClicks.numberOfClicks++;
+        localStorage.setItem("Total Clicks", JSON.stringify(totalClicks));
+        document.querySelector(
+          ".click_button"
+        ).innerText = `${totalClicks.numberOfClicks}`;
+        buttonBackgroundColor(totalClicks.numberOfClicks);
+      });
+
+      document.querySelector(
+        ".click_button"
+      ).innerText = `${totalClicks.numberOfClicks}`;
+      document
+        .querySelector(".refresh_button")
+        .addEventListener("click", () => {
+          totalClicks = { numberOfClicks: 0 };
+          document.querySelector(".click_button").innerText = 0;
+          document.querySelector(".click_button").style.backgroundColor =
+            "rgb(55, 211, 55)";
+        });
+    </script>
+  </body>
+</html>
