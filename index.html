@@ -1,12 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rohit Kumar - Performance Marketer</title>
+  <meta name="description"
+    content="Rohit Kumar - Performance marketer skilled in ppc, analytics, and growth marketing. Explore his portfolio and connect to grow your brand today!" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0b1220;
+      --muted: #546078;
+      --accent: #0b84ff;
+      --glass: #f6f9ff;
+      --radius: 12px;
+      --container: 920px;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-size: 16px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+        Helvetica, Arial;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+        Helvetica, Arial;
+      color: var(--text);
+      background: #f7fbff;
+      padding: 0 8%;
+    }
+
+    /* Header Section */
+
+    header {
+      width: 84%;
+      height: 15vh;
+      background-color: white;
+      position: fixed;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand {
+      width: 40%;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      border: 0px solid;
+      border-radius: 60px;
+      margin-left: 4%;
+      place-items: center;
+      background-image: url("rohit_kumar.jpg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #f5f5f5;
+    }
+
+    .name {
+      margin-left: 5%;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    nav {
+      width: 40%;
+      display: flex;
+      justify-content: end;
+    }
+
+    nav a {
+      width: 25%;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      align-content: end;
+      display: inline-block;
+      text-align: end;
+    }
+
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logo {
+        height: 60%;
+        margin-left: 6%;
+        margin-top: 0px;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      nav {
+        display: none;
+      }
+
+      header {
+        width: 100%;
+        height: 16vh;
+      }
+
+      .brand {
+        width: 100%;
+        height: 100%;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Main Section */
+
+    main {
+      padding-top: 20vh;
+      width: 70%;
+      margin-left: 15%;
+    }
+
+    .projects-section {
+      text-align: center;
+      background: #f9f9fb;
+    }
+
+    .projects-section h1 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .projects-section .subtitle {
+      color: #666;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .project-btn {
+      font-size: 1.2rem;
+      margin: 20px 0px;
+      height: 70px;
+      width: 180px;
+      background: #0078ff;
+      color: #fff;
+      border-radius: 12px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .project-btn:hover {
+      background: #005fcc;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 800px) {
+      main {
+        width: 95%;
+        margin-left: 2.5%;
+      }
+    }
+
+    /* Footer Section */
+
+    footer {
+      margin-top: 100px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      footer {
+        margin-top: 10px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>This page is live.</h1>
-  <h1>I repeat this page is live.</h1>
+  <header>
+    <div class="brand">
+      <div class="logo"></div>
+      <div class="name">
+        <h1>Rohit Kumar</h1>
+        <div class="muted">Performance Marketer</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="projects-section">
+    <h1>Explore My Useful Projects</h1>
+    <p class="subtitle">
+      Click any project below to visit and explore live demos or repositories.
+    </p>
+
+    <div class="projects-grid">
+      <a href="https://merohitazad.github.io/project/portfolio/portfolio.html" target="_blank"
+        class="project-btn">Portfolio</a>
+      <a href="https://merohitazad.github.io/project/myntra-html-css-clone/mynta.html" target="_blank"
+        class="project-btn">Myntra HTML-CSS Clone</a>
+      <a href="https://merohitazad.github.io/project/java-script/calculator.html" target="_blank"
+        class="project-btn">Calculator</a>
+      <a href="https://merohitazad.github.io/project/java-script/stopwatch.html" target="_blank"
+        class="project-btn">Stop Watch</a>
+      <a href="https://merohitazad.github.io/project/java-script/cricket.html" target="_blank" class="project-btn">Bat
+        Ball Stump Game</a>
+      <a href="https://merohitazad.github.io/project/java-script/todo-list-app.html" target="_blank"
+        class="project-btn">ToDo List App</a>
+      <a href="https://merohitazad.github.io/project/myntra-functional-clone/myntrahome.html" target="_blank"
+        class="project-btn">Myntra Functional Clone</a>
+    </div>
+  </main>
+
+  <footer>© Rohit Kumar - Performance Marketer</footer>
 </body>
+
 </html>
